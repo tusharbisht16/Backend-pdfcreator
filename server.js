@@ -2,6 +2,7 @@ import express from "express"
 import { config } from "dotenv";
 import { connectDb } from "./src/config/db.js";
 import authRoutes from "./src/Routes/Authroutes.js";
+import bookroutes from "./src/Routes/bookroutes.js";
 
 config();
 let app = express();
@@ -10,7 +11,7 @@ let port = process.env.PORT ||9090;
 let uri = process.env.MONGO_DB || null;
 app.use("/auth", authRoutes);
 
-
+app.use("/book",bookroutes)
 app.listen(port,async()=>{
     try{
         await connectDb(uri)

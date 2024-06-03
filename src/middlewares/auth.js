@@ -19,7 +19,7 @@ const auth = async (req, res, next) => {
         if (!user || !user.status) {
             return res.status(401).json({ message: 'User not authorized ' });
         }
-        req.user = user;
+        req.user = user._id;
         next();
     } catch (err) {
         return res.status(400).json({ message: 'Token is not valid' });
