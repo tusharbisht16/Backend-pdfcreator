@@ -3,7 +3,8 @@ import { config } from "dotenv";
 import { connectDb } from "./src/config/db.js";
 import authRoutes from "./src/Routes/Authroutes.js";
 import bookroutes from "./src/Routes/bookroutes.js";
-import {cors} from "cors"
+import pkg from 'cors';
+const {cors} = pkg;
 config();
 let app = express();
 app.use(cors({credentials: true}))
