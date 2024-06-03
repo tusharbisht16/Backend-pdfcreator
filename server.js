@@ -6,6 +6,7 @@ import bookroutes from "./src/Routes/bookroutes.js";
 
 config();
 let app = express();
+app.use(cors({credentials: true}))
 app.use(express.json());
 let port = process.env.PORT ||9090;
 let uri = process.env.MONGO_DB || null;
